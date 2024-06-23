@@ -392,3 +392,5 @@ Below is the diagram representing the database schema. This visual aid helps in 
   - `category`, `difficulty`, `video_url`, `description`, `solution_code`, `default_code`, and `method_name` cannot be null.
 
 ### License
+
+This project is licensed under the MIT License
