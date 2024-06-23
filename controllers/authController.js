@@ -73,3 +73,25 @@ exports.register = async (req, res) => {
     res.status(500).send({ message: "Error registering new user." });
   }
 };
+exports.checkUser = async (req, res) => {
+  try {
+    const { email } = req.query;
+    if (!email) {
+      return res.status(400).send({ message: "Email is required." });
+    }
+
+    // Check if the user already exists in the database
+    const existingUserResult = await db.query(
+      "SELECT id FROM users WHERE email = $1",
+      [email]
+    );
+    if (existingUserResult.rows.length > 0) {
+      return res.status(200).send({ exists: true });
+    } else {
+      return res.status(200).send({ exists: false });
+    }
+  } catch (error) {
+    console.error("Error checking user existence:", error.message, error.stack);
+    res.status(500).send({ message: "Error checking user existence." });
+  }
+};

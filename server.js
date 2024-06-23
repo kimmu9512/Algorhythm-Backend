@@ -13,9 +13,18 @@ const app = express();
 // Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
 
+// Serve static files in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("public"));
+}
+
+// Configure CORS
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || "*",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 // Execute SQL files
 executeSQLFiles()
   .then(() => {
@@ -33,7 +42,7 @@ function setAdminPrivileges(userId) {
     .then(() => console.log("Admin privileges granted to user"))
     .catch((error) => console.error("Error setting admin claims:", error));
 }
-
+// Uncomment this if you need to set admin privileges for a specific user
 // Set admin privileges for a specific user
 //setAdminPrivileges(process.env.ADMIN_USER_ID);
 
@@ -46,7 +55,14 @@ app.use("/judge", judgeRoutes); // Judge routes (submitting code, solutions)
 // Error handling middleware
 app.use((error, req, res, next) => {
   console.error("Error", error.message, error.stack);
-  res.status(500).send("Something broke!");
+  if (process.env.NODE_ENV === "production") {
+    res.status(500).send("Something broke!");
+  } else {
+    res.status(500).json({
+      message: error.message,
+      stack: error.stack,
+    });
+  }
 });
 
 // Start the server
