@@ -8,7 +8,7 @@ exports.getQuestionInput = async (req, res) => {
     );
     res.status(200).json(rows);
   } catch (error) {
-    console.error("Error fetching question input:", error.stack);
+    console.error("Error fetching question input");
     res.status(500).json({ error: "Failed to fetch question inputs." });
   }
 };
@@ -26,7 +26,7 @@ exports.getQuestionById = async (req, res) => {
       res.status(404).send({ message: "Question not found." });
     }
   } catch (error) {
-    console.error("Error fetching question by ");
+    console.error("Error fetching question ");
     res.status(500).send({ message: "Error fetching question by ID." });
   }
 };
@@ -38,7 +38,7 @@ exports.getRandomQuestion = async (req, res) => {
     console.log("Fetched a random question successfully.");
     res.status(200).json(rows[0]);
   } catch (error) {
-    console.error("Error fetching random question:");
+    console.error("Error fetching random question");
     res.status(500).send({ message: "Error fetching random question." });
   }
 };
@@ -242,7 +242,7 @@ exports.recordAttempt = async (req, res) => {
     console.log("Recorded attempt successfully.");
     res.status(200).send({ message: "Attempt recorded successfully." });
   } catch (error) {
-    console.error("Error recording attempt:");
+    console.error("Error recording attempt");
     res.status(500).send({ message: "Error recording attempt." });
   }
 };

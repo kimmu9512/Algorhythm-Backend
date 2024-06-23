@@ -177,6 +177,18 @@ This project structure is designed to follow best practices and principles such 
 
 > **Note:** There was no need to implement login or logout functionality on the backend. Firebase Authentication handles user authentication, including login and logout, ensuring secure management of user sessions.
 
+##### 2. Check User Existence
+
+- **Endpoint:** `GET /checkUser`
+- **Description:** Checks if a user with the given email exists in the backend database. This endpoint is used to verify if the user has already been registered before proceeding with the Firebase sign-in process.
+- **Query Parameters:**
+  - `email`: User's email (string, required)
+- **Response:**
+  - **Success:** 200 OK
+    - `{ "exists": true }` if the user exists
+    - `{ "exists": false }` if the user does not exist
+  - **Failure:** 400 Bad Request, 500 Internal Server Error
+
 #### Admin Endpoints
 
 **Base URL: `/admin`**

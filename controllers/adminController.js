@@ -74,7 +74,7 @@ exports.addQuestion = async (req, res) => {
     console.log("Question added successfully.");
     res.status(201).send({ message: "Question added successfully." });
   } catch (error) {
-    console.error("Error adding new question");
+    console.error("Error adding new question", error.message, error.stack);
     if (error.message === "Invalid test case data.") {
       res.status(400).send({ message: "Test case data is invalid." });
     } else {
