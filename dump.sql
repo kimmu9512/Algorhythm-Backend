@@ -5,6 +5,8 @@
 -- Dumped from database version 14.11 (Homebrew)
 -- Dumped by pg_dump version 14.11 (Homebrew)
 
+-- Started on 2024-06-23 02:25:15 EDT
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -17,6 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- TOC entry 831 (class 1247 OID 16386)
 -- Name: question_category; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -44,6 +47,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- TOC entry 216 (class 1259 OID 16463)
 -- Name: question_inputs; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -59,6 +63,7 @@ CREATE TABLE public.question_inputs (
 ALTER TABLE public.question_inputs OWNER TO postgres;
 
 --
+-- TOC entry 215 (class 1259 OID 16462)
 -- Name: question_inputs_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -74,6 +79,8 @@ CREATE SEQUENCE public.question_inputs_id_seq
 ALTER TABLE public.question_inputs_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3703 (class 0 OID 0)
+-- Dependencies: 215
 -- Name: question_inputs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -81,6 +88,7 @@ ALTER SEQUENCE public.question_inputs_id_seq OWNED BY public.question_inputs.id;
 
 
 --
+-- TOC entry 212 (class 1259 OID 16439)
 -- Name: questions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -100,6 +108,7 @@ CREATE TABLE public.questions (
 ALTER TABLE public.questions OWNER TO postgres;
 
 --
+-- TOC entry 211 (class 1259 OID 16438)
 -- Name: questions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -115,6 +124,8 @@ CREATE SEQUENCE public.questions_id_seq
 ALTER TABLE public.questions_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3704 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: questions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -122,6 +133,7 @@ ALTER SEQUENCE public.questions_id_seq OWNED BY public.questions.id;
 
 
 --
+-- TOC entry 214 (class 1259 OID 16450)
 -- Name: user_category_history; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -136,6 +148,7 @@ CREATE TABLE public.user_category_history (
 ALTER TABLE public.user_category_history OWNER TO postgres;
 
 --
+-- TOC entry 213 (class 1259 OID 16449)
 -- Name: user_category_history_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -151,6 +164,8 @@ CREATE SEQUENCE public.user_category_history_id_seq
 ALTER TABLE public.user_category_history_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3705 (class 0 OID 0)
+-- Dependencies: 213
 -- Name: user_category_history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -158,6 +173,7 @@ ALTER SEQUENCE public.user_category_history_id_seq OWNED BY public.user_category
 
 
 --
+-- TOC entry 218 (class 1259 OID 16477)
 -- Name: user_question_history; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -175,6 +191,7 @@ CREATE TABLE public.user_question_history (
 ALTER TABLE public.user_question_history OWNER TO postgres;
 
 --
+-- TOC entry 217 (class 1259 OID 16476)
 -- Name: user_question_history_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -190,6 +207,8 @@ CREATE SEQUENCE public.user_question_history_id_seq
 ALTER TABLE public.user_question_history_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3706 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: user_question_history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -197,6 +216,7 @@ ALTER SEQUENCE public.user_question_history_id_seq OWNED BY public.user_question
 
 
 --
+-- TOC entry 210 (class 1259 OID 16428)
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -210,6 +230,7 @@ CREATE TABLE public.users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
+-- TOC entry 209 (class 1259 OID 16427)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -225,6 +246,8 @@ CREATE SEQUENCE public.users_id_seq
 ALTER TABLE public.users_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 3707 (class 0 OID 0)
+-- Dependencies: 209
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -232,6 +255,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
+-- TOC entry 3524 (class 2604 OID 16466)
 -- Name: question_inputs id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -239,6 +263,7 @@ ALTER TABLE ONLY public.question_inputs ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
+-- TOC entry 3522 (class 2604 OID 16442)
 -- Name: questions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -246,6 +271,7 @@ ALTER TABLE ONLY public.questions ALTER COLUMN id SET DEFAULT nextval('public.qu
 
 
 --
+-- TOC entry 3523 (class 2604 OID 16453)
 -- Name: user_category_history id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -253,6 +279,7 @@ ALTER TABLE ONLY public.user_category_history ALTER COLUMN id SET DEFAULT nextva
 
 
 --
+-- TOC entry 3525 (class 2604 OID 16480)
 -- Name: user_question_history id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -260,6 +287,7 @@ ALTER TABLE ONLY public.user_question_history ALTER COLUMN id SET DEFAULT nextva
 
 
 --
+-- TOC entry 3521 (class 2604 OID 16431)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -267,6 +295,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
+-- TOC entry 3695 (class 0 OID 16463)
+-- Dependencies: 216
 -- Data for Name: question_inputs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -296,6 +326,8 @@ COPY public.question_inputs (id, question_id, input_name, example_value, input_o
 
 
 --
+-- TOC entry 3691 (class 0 OID 16439)
+-- Dependencies: 212
 -- Data for Name: questions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -316,61 +348,38 @@ COPY public.questions (id, title, category, difficulty, video_url, description, 
 
 
 --
+-- TOC entry 3693 (class 0 OID 16450)
+-- Dependencies: 214
 -- Data for Name: user_category_history; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.user_category_history (id, user_id, category, last_solved) FROM stdin;
-2	1	Two Pointers	1969-12-31 19:00:00
-3	1	Stack	1969-12-31 19:00:00
-4	1	Binary Search	1969-12-31 19:00:00
-5	1	Linked List	1969-12-31 19:00:00
-6	1	Trees	1969-12-31 19:00:00
-7	1	Tries	1969-12-31 19:00:00
-8	1	Heap	1969-12-31 19:00:00
-9	1	Intervals	1969-12-31 19:00:00
-10	1	Greedy	1969-12-31 19:00:00
-11	1	Graphs	1969-12-31 19:00:00
-12	1	Backtracking	1969-12-31 19:00:00
-13	1	Dynamic Programming	1969-12-31 19:00:00
-1	1	Arrays and Hashing	2024-05-29 03:38:20.664
-17	2	Two Pointers	1969-12-31 19:00:00
-18	2	Stack	1969-12-31 19:00:00
-19	2	Binary Search	1969-12-31 19:00:00
-20	2	Linked List	1969-12-31 19:00:00
-21	2	Trees	1969-12-31 19:00:00
-22	2	Tries	1969-12-31 19:00:00
-23	2	Heap	1969-12-31 19:00:00
-24	2	Intervals	1969-12-31 19:00:00
-25	2	Greedy	1969-12-31 19:00:00
-26	2	Graphs	1969-12-31 19:00:00
-27	2	Backtracking	1969-12-31 19:00:00
-28	2	Dynamic Programming	1969-12-31 19:00:00
-16	2	Arrays and Hashing	2024-06-16 16:55:04.16
 \.
 
 
 --
+-- TOC entry 3697 (class 0 OID 16477)
+-- Dependencies: 218
 -- Data for Name: user_question_history; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.user_question_history (id, user_id, question_id, attempts, pre15_attempts, prev_time, last_solved) FROM stdin;
-1	1	1	1	1	2800	2024-05-25 12:34:56
-2	1	2	1	1	3	2024-05-29 03:38:20.618
-3	2	1	1	1	3	2024-06-16 16:55:04.139
 \.
 
 
 --
+-- TOC entry 3689 (class 0 OID 16428)
+-- Dependencies: 210
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.users (id, email, firebase_uid) FROM stdin;
-1	gudwn9512@gmail.com	AQSQbDkcGiecv8QjYl2wEUjP4jI3
-2	algorhythm9512@gmail.com	qM81tkBSWpPTYZlJ7U2EJcdXJrG2
 \.
 
 
 --
+-- TOC entry 3708 (class 0 OID 0)
+-- Dependencies: 215
 -- Name: question_inputs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -378,6 +387,8 @@ SELECT pg_catalog.setval('public.question_inputs_id_seq', 36, true);
 
 
 --
+-- TOC entry 3709 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: questions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -385,13 +396,17 @@ SELECT pg_catalog.setval('public.questions_id_seq', 28, true);
 
 
 --
+-- TOC entry 3710 (class 0 OID 0)
+-- Dependencies: 213
 -- Name: user_category_history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.user_category_history_id_seq', 29, true);
+SELECT pg_catalog.setval('public.user_category_history_id_seq', 68, true);
 
 
 --
+-- TOC entry 3711 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: user_question_history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -399,13 +414,16 @@ SELECT pg_catalog.setval('public.user_question_history_id_seq', 3, true);
 
 
 --
+-- TOC entry 3712 (class 0 OID 0)
+-- Dependencies: 209
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 2, true);
+SELECT pg_catalog.setval('public.users_id_seq', 5, true);
 
 
 --
+-- TOC entry 3538 (class 2606 OID 16470)
 -- Name: question_inputs question_inputs_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -414,6 +432,7 @@ ALTER TABLE ONLY public.question_inputs
 
 
 --
+-- TOC entry 3540 (class 2606 OID 16496)
 -- Name: question_inputs question_inputs_question_id_input_order_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -422,6 +441,7 @@ ALTER TABLE ONLY public.question_inputs
 
 
 --
+-- TOC entry 3542 (class 2606 OID 16494)
 -- Name: question_inputs question_inputs_question_id_order_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -430,6 +450,7 @@ ALTER TABLE ONLY public.question_inputs
 
 
 --
+-- TOC entry 3531 (class 2606 OID 16446)
 -- Name: questions questions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -438,6 +459,7 @@ ALTER TABLE ONLY public.questions
 
 
 --
+-- TOC entry 3533 (class 2606 OID 16448)
 -- Name: questions questions_title_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -446,6 +468,7 @@ ALTER TABLE ONLY public.questions
 
 
 --
+-- TOC entry 3536 (class 2606 OID 16455)
 -- Name: user_category_history user_category_history_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -454,6 +477,7 @@ ALTER TABLE ONLY public.user_category_history
 
 
 --
+-- TOC entry 3544 (class 2606 OID 16482)
 -- Name: user_question_history user_question_history_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -462,6 +486,7 @@ ALTER TABLE ONLY public.user_question_history
 
 
 --
+-- TOC entry 3527 (class 2606 OID 16437)
 -- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -470,6 +495,7 @@ ALTER TABLE ONLY public.users
 
 
 --
+-- TOC entry 3529 (class 2606 OID 16435)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -478,6 +504,7 @@ ALTER TABLE ONLY public.users
 
 
 --
+-- TOC entry 3534 (class 1259 OID 16461)
 -- Name: idx_user_category; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -485,6 +512,7 @@ CREATE UNIQUE INDEX idx_user_category ON public.user_category_history USING btre
 
 
 --
+-- TOC entry 3546 (class 2606 OID 16471)
 -- Name: question_inputs question_inputs_question_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -493,6 +521,7 @@ ALTER TABLE ONLY public.question_inputs
 
 
 --
+-- TOC entry 3545 (class 2606 OID 16456)
 -- Name: user_category_history user_category_history_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -501,6 +530,7 @@ ALTER TABLE ONLY public.user_category_history
 
 
 --
+-- TOC entry 3548 (class 2606 OID 16488)
 -- Name: user_question_history user_question_history_question_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -509,12 +539,15 @@ ALTER TABLE ONLY public.user_question_history
 
 
 --
+-- TOC entry 3547 (class 2606 OID 16483)
 -- Name: user_question_history user_question_history_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.user_question_history
     ADD CONSTRAINT user_question_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id);
 
+
+-- Completed on 2024-06-23 02:25:20 EDT
 
 --
 -- PostgreSQL database dump complete
