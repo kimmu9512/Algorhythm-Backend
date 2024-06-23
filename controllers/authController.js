@@ -5,9 +5,30 @@ const db = require("../config/db");
 exports.register = async (req, res) => {
   try {
     console.log("registering user");
-    const { email, uid } = req.body;
-    if (!email || !uid) {
+    const { email, idToken } = req.body;
+    //
+    if (!email || !idToken) {
       return res.status(400).send({ message: "Email and uid are required." });
+    }
+    let decodedToken;
+    try {
+      decodedToken = await admin.auth().verifyIdToken(idToken);
+    } catch (error) {
+      return res.status(400).send({ message: "Invalid ID token." });
+    }
+    const uid = decodedToken.uid;
+    if (decodedToken.email !== email) {
+      return res
+        .status(400)
+        .send({ message: "Email and ID token do not match." });
+    }
+    // Check if the user already exists in the database
+    const existingUserResult = await db.query(
+      "SELECT id FROM users WHERE email = $1",
+      [email]
+    );
+    if (existingUserResult.rows.length > 0) {
+      return res.status(400).send({ message: "User already exists." });
     }
 
     // Insert new user into the users table
@@ -51,31 +72,4 @@ exports.register = async (req, res) => {
     console.error("Error registering new user:", error.message, error.stack);
     res.status(500).send({ message: "Error registering new user." });
   }
-};
-
-exports.login = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const { rows } = await db.query("SELECT * FROM users WHERE email = $1", [
-      email,
-    ]);
-    const user = rows[0];
-    if (user && (await bcrypt.compare(password, user.password_hash))) {
-      const token = await admin.auth().createCustomToken(user.firebase_uid);
-
-      res.status(200).send({ message: "Login successful.", token });
-    } else {
-      console.log(`Login attempt failed for user`);
-      res.status(401).send({ message: "Invalid email or password." });
-    }
-  } catch (error) {
-    console.error("Error logging in:", error.message, error.stack);
-    res.status(500).send({ message: "Error logging in." });
-  }
-};
-
-exports.logout = (req, res) => {
-  // Firebase Authentication is stateless; logging out is handled client-side by removing the token
-  console.log("Logout requested");
-  res.status(200).send({ message: "Logout successful." });
 };
