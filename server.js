@@ -44,7 +44,7 @@ function setAdminPrivileges(userId) {
 }
 // Uncomment this if you need to set admin privileges for a specific user
 // Set admin privileges for a specific user
-setAdminPrivileges(process.env.ADMIN_USER_ID);
+// setAdminPrivileges(process.env.ADMIN_USER_ID);
 
 // Route handlers
 app.use("/auth", authRoutes); // Authentication routes (login, logout, register)
