@@ -8,16 +8,19 @@ exports.register = async (req, res) => {
     const { email, idToken } = req.body;
     //
     if (!email || !idToken) {
+      console.log("Email and uid are required.");
       return res.status(400).send({ message: "Email and uid are required." });
     }
     let decodedToken;
     try {
       decodedToken = await admin.auth().verifyIdToken(idToken);
     } catch (error) {
+      console.log("Invalid ID token.");
       return res.status(400).send({ message: "Invalid ID token." });
     }
     const uid = decodedToken.uid;
     if (decodedToken.email !== email) {
+      console.log("Email and ID token do not match.");
       return res
         .status(400)
         .send({ message: "Email and ID token do not match." });
@@ -28,6 +31,7 @@ exports.register = async (req, res) => {
       [email]
     );
     if (existingUserResult.rows.length > 0) {
+      console.log("User already exists");
       return res.status(400).send({ message: "User already exists." });
     }
 
