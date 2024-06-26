@@ -16,6 +16,7 @@ exports.register = async (req, res) => {
       decodedToken = await admin.auth().verifyIdToken(idToken);
     } catch (error) {
       console.log("Invalid ID token.");
+      console.log(error);
       return res.status(400).send({ message: "Invalid ID token." });
     }
     const uid = decodedToken.uid;
