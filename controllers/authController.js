@@ -16,7 +16,6 @@ exports.register = async (req, res) => {
       decodedToken = await admin.auth().verifyIdToken(idToken);
     } catch (error) {
       console.log("Invalid ID token.");
-      console.log(error);
       return res.status(400).send({ message: "Invalid ID token." });
     }
     const uid = decodedToken.uid;
@@ -43,7 +42,7 @@ exports.register = async (req, res) => {
     );
     const userId = userInsertResult.rows[0].id;
 
-    console.log(`User registered in backend: ${email}`);
+    console.log(`User registered in backend`);
 
     // Initialize user category history for all categories
     const categories = [
@@ -74,7 +73,7 @@ exports.register = async (req, res) => {
       message: "User registered successfully and categories initialized.",
     });
   } catch (error) {
-    console.error("Error registering new user:", error.message, error.stack);
+    console.log("Error registering new user");
     res.status(500).send({ message: "Error registering new user." });
   }
 };
@@ -96,7 +95,7 @@ exports.checkUser = async (req, res) => {
       return res.status(200).send({ exists: false });
     }
   } catch (error) {
-    console.error("Error checking user existence:", error.message, error.stack);
+    console.log("Error checking user existence");
     res.status(500).send({ message: "Error checking user existence." });
   }
 };

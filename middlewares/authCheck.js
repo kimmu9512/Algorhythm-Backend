@@ -13,7 +13,7 @@ const authCheck = async (req, res, next) => {
 
     next();
   } catch (error) {
-    console.error("Error verifying token:", error.message, error.stack);
+    console.log("error checking user authentication in middleware");
     return res.redirect("/auth/login");
   }
 };

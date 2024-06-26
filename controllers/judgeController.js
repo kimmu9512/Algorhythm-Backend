@@ -35,7 +35,7 @@ exports.submitCode = async (req, res) => {
     const codeerror = atob(response.data.stderr);
     res.json(response.data);
   } catch (error) {
-    console.error("Error sending code to Judge0:", error.message, error.stack);
+    console.error("Error sending code to Judge0");
     res.status(500).json({ error: "Failed to execute code." });
   }
 };
@@ -77,7 +77,7 @@ exports.submitSolution = async (req, res) => {
     const codeerror = atob(response.data.stderr);
     res.json(response.data);
   } catch (error) {
-    console.error("Error sending code to Judge0:", error.message, error.stack);
+    console.log("Error sending code to Judge0");
     res.status(500).json({ error: "Failed to execute code." });
   }
 };

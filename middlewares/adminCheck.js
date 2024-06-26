@@ -10,11 +10,8 @@ const adminCheck = (req, res, next) => {
 
     next();
   } catch (error) {
-    console.error(
-      "Error checking admin privileges:",
-      error.message,
-      error.stack
-    );
+    console.log("Error checking user admin status in middleware");
+
     return res.status(500).send("Internal Server Error");
   }
 };

@@ -8,7 +8,7 @@ exports.getQuestionInput = async (req, res) => {
     );
     res.status(200).json(rows);
   } catch (error) {
-    console.error("Error fetching question input");
+    console.log("Error fetching question input");
     res.status(500).json({ error: "Failed to fetch question inputs." });
   }
 };
@@ -38,7 +38,7 @@ exports.getRandomQuestion = async (req, res) => {
     console.log("Fetched a random question successfully.");
     res.status(200).json(rows[0]);
   } catch (error) {
-    console.error("Error fetching random question");
+    console.log("Error fetching random question");
     res.status(500).send({ message: "Error fetching random question." });
   }
 };
@@ -180,7 +180,7 @@ exports.getAllQuestionsWithUserHistory = async (req, res) => {
 
     res.status(200).json(enrichedQuestions);
   } catch (error) {
-    console.error("Error fetching questions with user history:");
+    console.log("Error fetching questions with user history:");
     res
       .status(500)
       .send({ message: "Error fetching questions with user history." });
@@ -242,7 +242,7 @@ exports.recordAttempt = async (req, res) => {
     console.log("Recorded attempt successfully.");
     res.status(200).send({ message: "Attempt recorded successfully." });
   } catch (error) {
-    console.error("Error recording attempt");
+    console.log("Error recording attempt");
     res.status(500).send({ message: "Error recording attempt." });
   }
 };
